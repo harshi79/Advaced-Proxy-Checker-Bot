@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: advanced-proxy-checker-bot
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        value: "7728424218"
+      - key: CHECK_URL
+        value: "https://api.ipify.org?format=json"
+      - key: CHECK_TIMEOUT_SECONDS
+        value: "8"
+      - key: CHECK_RETRIES
+        value: "1"
+      - key: CHECK_CONCURRENCY
+        value: "100"
+      - key: PROGRESS_UPDATE_SECONDS
+        value: "1.2"
+      - key: WORKER_COUNT
+        value: "2"
+      - key: WEBHOOK_SECRET
+        generateValue: true
